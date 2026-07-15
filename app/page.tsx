@@ -1,23 +1,31 @@
+import LoadingScreen from "@/components/LoadingScreen";
+
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
+import Services from "@/components/sections/Services";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import VideoShowcase from "@/components/sections/VideoShowcase";
-import Services from "@/components/sections/Services";
+import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#050505] text-white">
+    <>
+      <LoadingScreen />
+
       <Navbar />
-      <Hero />
-      <About />
-      <FeaturedWork />
-      <VideoShowcase />
-      <Services />
-      <Contact />
+
+      <main className="bg-[#050505] text-white overflow-x-hidden">
+        <Hero />
+        <Services />
+        <FeaturedWork />
+        <VideoShowcase />
+        <About />
+        <Contact />
+      </main>
+
       <Footer />
-    </main>
+    </>
   );
 }
