@@ -61,6 +61,28 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+
+  name: "Gorre Naveen",
+  url: "https://gorre-naveen.vercel.app",
+  image: "https://gorre-naveen.vercel.app/profile.png",
+
+  jobTitle: "Creative Director",
+
+  description:
+    "Creative Director, Video Editor, Brand Strategist and AI Automation Specialist.",
+
+  email: "mailto:naveenjohn6283@gmail.com",
+  telephone: "+91 6281889154",
+
+  sameAs: [
+    "https://www.linkedin.com/in/naveen-gorre-1941352b6",
+    "https://www.instagram.com/nawin962k",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +91,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#050505] text-white antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd),
+          }}
+        />
+
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
