@@ -40,10 +40,9 @@ export default function VideoShowcase() {
   return (
     <section
       id="portfolio"
-      className="bg-[#050505] py-28 text-white"
+      className="bg-[#050505] py-20 lg:py-28 text-white"
     >
-      <div className="mx-auto max-w-[1600px] px-14 xl:px-20">
-
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-20">
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,41 +56,38 @@ export default function VideoShowcase() {
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl text-[clamp(48px,6vw,88px)] font-black leading-[0.95] tracking-[-0.05em]"
+          className="max-w-4xl text-[clamp(40px,7vw,88px)] font-black leading-[0.95] tracking-[-0.05em]"
         >
           Brands I've Built &
           <br />
           Content I've Created.
         </motion.h2>
 
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-500">
+        <p className="mt-8 max-w-2xl text-base leading-7 text-neutral-500 sm:text-lg sm:leading-8">
           Creative direction, cinematic storytelling, YouTube strategy,
           branding and digital experiences crafted for growing brands.
         </p>
 
-        <div className="mt-20 space-y-10">
-
+        <div className="mt-16 space-y-8 lg:mt-20 lg:space-y-10">
           {brands.map((brand) => (
             <motion.div
               key={brand.title}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-[30px] border border-neutral-800 bg-white/[0.02] p-10 transition-all duration-300 hover:border-neutral-600 hover:bg-white/[0.04]"
+              className="rounded-[30px] border border-neutral-800 bg-white/[0.02] p-6 transition-all duration-300 hover:border-neutral-600 hover:bg-white/[0.04] sm:p-8 lg:p-10"
             >
               <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-
                 <div className="max-w-2xl">
-                  <h3 className="text-4xl font-black tracking-[-0.04em]">
+                  <h3 className="text-3xl font-black tracking-[-0.04em] sm:text-4xl lg:text-5xl">
                     {brand.title}
                   </h3>
 
-                  <p className="mt-5 text-[17px] leading-8 text-neutral-500">
+                  <p className="mt-5 text-base leading-7 text-neutral-500 sm:text-[17px] sm:leading-8">
                     {brand.description}
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-4">
-
+                <div className="flex w-full flex-col gap-4 lg:w-auto">
                   {brand.links.map((link) => {
                     const Icon = link.icon;
 
@@ -101,8 +97,8 @@ export default function VideoShowcase() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ x: 8 }}
-                        className="group flex min-w-[320px] items-center justify-between rounded-2xl border border-neutral-800 px-6 py-5 transition-all duration-300 hover:border-white hover:bg-white/5"
+                        whileHover={{ x: 6 }}
+                        className="group flex w-full items-center justify-between rounded-2xl border border-neutral-800 px-5 py-5 transition-all duration-300 hover:border-white hover:bg-white/5 sm:min-w-[340px] sm:px-6"
                       >
                         <div className="flex items-center gap-4">
                           <Icon
@@ -110,27 +106,23 @@ export default function VideoShowcase() {
                             className="text-neutral-300 transition group-hover:text-white"
                           />
 
-                          <span className="text-sm font-medium uppercase tracking-[0.18em]">
+                          <span className="text-xs font-medium uppercase tracking-[0.18em] sm:text-sm">
                             {link.label}
                           </span>
                         </div>
 
                         <ArrowUpRight
                           size={20}
-                          className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                          className="shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                         />
                       </motion.a>
                     );
                   })}
-
                 </div>
-
               </div>
             </motion.div>
           ))}
-
         </div>
-
       </div>
     </section>
   );
